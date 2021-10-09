@@ -1,0 +1,129 @@
+/* styling the whole body */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size)*.9);
+}
+
+body {
+    margin: 0;
+}
+
+#graph {
+    width: 150vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.block {
+    width: 150px;
+    height: 150px;
+    background-color:darkgreen;
+    border-radius: 20px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.block.x,
+.block.o{
+    cursor: not-allowed;
+}
+
+/* x comes here */
+
+.block.x::before,
+.block.x::after{
+    background-color:turquoise;
+}
+
+.block.o::before,
+.block.o::after{
+    background-color:turquoise;
+}
+
+.container.x .block:not(.x):not(.o):hover::before,
+.container.x .block:not(.x):not(.o):hover::after{
+    background-color: rgba(190, 194, 194, 0.493);
+}
+
+
+.block.x::before,
+.block.x::after,
+.container.x .block:not(.x):not(.o):hover::before,
+.container.x .block:not(.x):not(.o):hover::after{
+    content: '';
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+    /* background-color: turquoise; */
+}
+
+.block.x::before,
+.container.x .block:not(.x):not(.o):hover::before{
+    transform: rotate(45deg);
+}
+.block.x::after,
+.container.x .block:not(.x):not(.o):hover::after{
+    transform: rotate(-45deg);
+}
+/* x finishes here */
+
+/* O comes here */
+
+.container.o .block:not(.x):not(.o):hover::before,
+.container.o .block:not(.x):not(.o):hover::after{
+    background-color: rgba(190, 194, 194, 0.493);
+}
+
+
+.block.o::before,
+.block.o::after,
+.container.o .block:not(.x):not(.o):hover::before,
+.container.o .block:not(.x):not(.o):hover::after{
+    content: '';
+    width: var(--mark-size);
+    position: absolute;
+    height: var(--mark-size);
+    /* background-color: turquoise; */
+    border-radius: 50px;
+}
+
+.block.o::before,
+.container.o .block:not(.x):not(.o):hover::before
+{
+    width: var(--mark-size);
+    height: var(--mark-size);
+    /* background-color: turquoise; */
+}
+
+.block.o::after,
+.container.o .block:not(.x):not(.o):hover::after{
+    width: calc(var(--mark-size)*.7);
+    height: calc(var(--mark-size)*.7);
+    background-color: darkgreen;
+}
+/* O finish */
+
+/* play again button */
+
+.alert-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 99, 71, 0.664);
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
