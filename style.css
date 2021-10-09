@@ -115,6 +115,19 @@ body {
 /* O finish */
 
 /* play again button */
+.alert-message button{
+    align-content: center;
+    left: 506px;
+    position: relative;
+}
+
+.alert-message .data-text {
+    align-content: center;
+    left: 620px;
+    position: relative;
+    top: 70px;
+    color: whitesmoke;
+}
 
 .alert-message{
     position: fixed;
@@ -127,3 +140,4 @@ body {
     align-content: center;
     align-items: center;
 }
+
